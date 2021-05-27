@@ -14,9 +14,12 @@ public class Calculadora1 {
     static double x=getNum("Introduce primer valor");
     static double y=getNum("Introduce segundo valor");
     static boolean mayor=comprobar (sumar(x,y));
+    static double suma=0;
+    static double [] sumando = {x,y};
     
     public static void main(String[] args){
         System.out.println("El resultado de sumar ambos es "+sumar(x,y));
+        System.out.println("El reusltado de sumar un array con forEach de "+x+" y "+y+" es "+sumar());
         System.out.println("El resultado de restar ambos es "+restar(x,y));
         System.out.println("El resultado de multiplicar ambos es "+multiplicar(x,y));
         System.out.println("El resultado de dividir ambos es "+dividir(x,y));
@@ -30,7 +33,13 @@ public class Calculadora1 {
         return teclado.nextDouble();
     }
     public static double sumar(double x, double y){
-        double suma=x+y;
+        double sumaA=x+y;
+        return sumaA;
+    }
+    public static double sumar(){
+        for (double num:sumando){
+            suma+=num;
+        }
         return suma;
     }
     public static double restar(double x, double y){
