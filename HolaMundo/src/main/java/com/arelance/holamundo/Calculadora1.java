@@ -11,18 +11,19 @@ import java.util.Scanner;
  */
 public class Calculadora1 {
     
-        static double x=getNum("Introduce primer valor");
-        static double y=getNum("Introduce segundo valor");
-        static boolean mayor=comprobar (sumar(x,y));
-        public static void main(String[] args){
-            System.out.println("El resultado de sumar ambos es "+sumar(x,y));
-            System.out.println("El resultado de restar ambos es "+restar(x,y));
-            System.out.println("El resultado de multiplicar ambos es "+multiplicar(x,y));
-            System.out.println("El resultado de dividir ambos es "+dividir(x,y));
-            String msgM= mayor?"La suma es mayor de 100":"La suma es menor de 100";
-            System.out.println(msgM);
-            System.out.println("El nº mayor es "+Math.max(x, y));
-        }
+    static double x=getNum("Introduce primer valor");
+    static double y=getNum("Introduce segundo valor");
+    static boolean mayor=comprobar (sumar(x,y));
+    
+    public static void main(String[] args){
+        System.out.println("El resultado de sumar ambos es "+sumar(x,y));
+        System.out.println("El resultado de restar ambos es "+restar(x,y));
+        System.out.println("El resultado de multiplicar ambos es "+multiplicar(x,y));
+        System.out.println("El resultado de dividir ambos es "+dividir(x,y));
+        String msgM= mayor?"La suma es mayor de 100":"La suma es menor de 100";
+        System.out.println(msgM);
+        System.out.println("El nº mayor es "+Math.max(x, y));
+    }
     public static double getNum(String msg){
         Scanner teclado = new Scanner (System.in);
         System.out.println(msg);

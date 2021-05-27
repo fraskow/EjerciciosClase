@@ -14,6 +14,7 @@ public class Jugador {
     public String apellido;
     public int dorsal;
     public String equipo;
+    public boolean titular;
     
     public static int getDor(String msg){
         Scanner teclado=new Scanner(System.in);
@@ -41,5 +42,6 @@ public class Jugador {
         apellido=getApe("Introduce el apellido");
         equipo=getTeam("Introduce el equipo");
         dorsal=getDor("Introduce el dorsal");
+        titular=dorsal<9;
     }
 }

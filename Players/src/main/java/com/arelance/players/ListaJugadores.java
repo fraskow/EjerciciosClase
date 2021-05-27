@@ -11,7 +11,9 @@ package com.arelance.players;
  */
 public class ListaJugadores {
     public static void main(String[] args) {
-        Jugador player = new Jugador();
-        System.out.println(player);
+        Jugador jugador = new Jugador();
+            for(int i=0;i<5;++i){
+            System.out.println(i);
+        }
     }
 }
