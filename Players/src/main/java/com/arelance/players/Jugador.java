@@ -4,44 +4,74 @@
  * and open the template in the editor.
  */
 package com.arelance.players;
+
 import java.util.Scanner;
+
 /**
  *
  * @author Admin
  */
 public class Jugador {
-    public String nombre;
-    public String apellido;
-    public int dorsal;
-    public String equipo;
-    public boolean titular;
+   /* 
+    private static Jugador jugador;
     
-    public static int getDor(String msg){
+    public int dorsal;
+    public String nombre;
+    public String equipo;
+    public boolean libre;
+    public boolean titular;
+    //public String posicion;
+    
+    
+    public static int setDor(String msg){
         Scanner teclado=new Scanner(System.in);
         System.out.println(msg);
         return teclado.nextInt();
     }
-     public static String getNom(String msg){
+    
+    public static String setNom(String msg){
+        Scanner teclado=new Scanner(System.in);
+        System.out.println(msg);
+        return teclado.next();
+    }*/
+    /*
+    public static String setTeam(String msg){
         Scanner teclado=new Scanner(System.in);
         System.out.println(msg);
         return teclado.next();
     }
-     public static String getApe(String msg){
+    
+    /*public static String setPos(String msg){
         Scanner teclado=new Scanner(System.in);
         System.out.println(msg);
         return teclado.next();
     }
-     public static String getTeam(String msg){
-        Scanner teclado=new Scanner(System.in);
-        System.out.println(msg);
-        return teclado.next();
-    }
+    
      
     Jugador(){
-        nombre=getNom("Introduce el nombre");
-        apellido=getApe("Introduce el apellido");
-        equipo=getTeam("Introduce el equipo");
-        dorsal=getDor("Introduce el dorsal");
+        jugador = new Jugador();
+        nombre=setNom("Introduce el nombre");
+        equipo=setTeam("Introduce el equipo");
+        dorsal=setDor("Introduce el dorsal");
         titular=dorsal<9;
+        libre=equipo==null;
+        //posicion=getPos("Introduce la posicion del jugador");
+    }   
+    */
+    
+    String nombre;
+    int dorsal;
+    Jugador(String nombre, int dorsal){
+        this.nombre=nombre;
+        this.dorsal=dorsal;
+    }
+    public String getNombre(){
+        return nombre;
+    }
+    public int getDor(){
+        return dorsal;
+    }
+    public int setDor(){
+        
     }
 }

@@ -9,11 +9,6 @@ package com.arelance.players;
  *
  * @author Admin
  */
-public class ListaJugadores {
-    public static void main(String[] args) {
-        Jugador jugador = new Jugador();
-            for(int i=0;i<5;++i){
-            System.out.println(i);
-        }
-    }
+public class Jornada {
+    
 }
