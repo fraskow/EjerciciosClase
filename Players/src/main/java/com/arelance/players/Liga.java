@@ -34,7 +34,12 @@ public class Liga {
             jugadores[i]= new Jugador(nombres[i],(int)Math.floor(Math.random()*9+1));
         }
     }
-    
+    /*
+    @Override
+    public void toString(){
+        System.out.println(Arrays.toString(jugadores));
+    }
+    */
     public static void main(String[] args) {
         Jugador[] players = jugadores;
         System.out.println(Arrays.toString(players));
