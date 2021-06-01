@@ -5,46 +5,44 @@ package com.arelance.gestiondecontactos;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 /**
  *
  * @author Admin
  */
 public class Principal {
+    
     public static Scanner teclado = new Scanner(System.in);
-    private static final int nuMax = 15;
-    private static final Contactos[] contactos = new Contactos[nuMax];
+    private static final int NUMAX = 2;
+    private static Contactos[] contactos = new Contactos[NUMAX];
     
-    //ArrayList contactos = new ArrayList();
-    //Contador
-    //Condiciones para añadir
-    //Eliminar por objetos.
-    
-    private static void añadirDatos(){
-        
-        String[] names={"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"};
-        String[] email={"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"};
-        for (int i=0; i<nuMax;i++){
+    public static List rellenarDatos(){
+        String [] names = new String[NUMAX];
+        String [] email = new String[NUMAX];
+        for (int i=0; i<NUMAX;i++){
             int numeroTelef = (int)Math.floor(Math.random()*1000+1);
+            System.out.println("Nombre contacto "+i);
+            names[i]=teclado.next();
+            System.out.println("Email contacto "+i);
+            email[i]=teclado.next();
             contactos[i] = new Contactos(numeroTelef,names[i],email[i]);
         }
+        List agenda = Arrays.asList(contactos);
+        return agenda;
     }
     public static void mostrarAgenda() {
-        System.out.println(contactos);
+        System.out.println(rellenarDatos().toString());
     }
     
     public static void consultarAgenda(){
-        
+        List consultados = Arrays.asList(rellenarDatos().contains(teclado.next()));
+        System.out.println("El contacto consultado es "+consultados.toString());
     }
     
     public static void eliminarDatos(){
-        
+        List deleted = Arrays.asList(rellenarDatos().remove(teclado.nextInt()));
+        System.out.println("El contacto borrado es "+deleted.toString());
     }
-    
-    public static void main(String[] args) {
-        añadirDatos();
-        mostrarAgenda();
-    }    
 }
