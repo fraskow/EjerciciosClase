@@ -5,20 +5,18 @@
  */
 package com.arelance.players;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Admin
  */
 public class Jugador {
 
-    public static String nombre;
-    public static int dorsal;
+    public String nombre;
+    public int dorsal;
 
     Jugador(String nombre, int dorsal){
-        Jugador.nombre=nombre;
-        Jugador.dorsal=dorsal;
+        this.nombre=nombre;
+        this.dorsal=dorsal;
     }
     public String getNombre(){
         return nombre;

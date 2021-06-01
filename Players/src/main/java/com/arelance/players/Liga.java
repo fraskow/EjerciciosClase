@@ -16,7 +16,7 @@ public class Liga {
     private static Liga liga;
     private static final  int maximo=8;
     private static final Jugador[] jugadores = new Jugador[maximo];
-    private static final String [] nombres = {"luis","romulo","peque","raul","figo","zidane","juan","pepe"};
+    //private static final String [] nombres = {"luis","romulo","peque","raul","figo","zidane","juan","pepe"};
         
     public Liga(){
         rellenarJugadores();
@@ -30,19 +30,14 @@ public class Liga {
     }
     
     private static void rellenarJugadores(){
+        String [] nombres = {"luis","romulo","peque","raul","figo","zidane","juan","pepe"};
         for (int i=0;i<maximo;i++){
-            jugadores[i]= new Jugador(nombres[i],(int)Math.floor(Math.random()*9+1));
+            jugadores[i]= new Jugador(nombres[i],(int)Math.floor(Math.random()*10+1));
         }
     }
-    /*
-    @Override
-    public void toString(){
-        System.out.println(Arrays.toString(jugadores));
-    }
-    */
+    
     public static void main(String[] args) {
-        Jugador[] players = jugadores;
-        System.out.println(Arrays.toString(players));
-        System.out.println(Arrays.toString(jugadores));
+        Jugador[] players = Liga.getInstance().jugadores;
+        System.out.println(Arrays.asList(jugadores));
     }
 }
