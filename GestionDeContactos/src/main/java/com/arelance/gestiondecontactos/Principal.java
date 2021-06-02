@@ -6,7 +6,6 @@ package com.arelance.gestiondecontactos;
  * and open the template in the editor.
  */
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 /**
  *
@@ -14,35 +13,45 @@ import java.util.Scanner;
  */
 public class Principal {
     
-    public static Scanner teclado = new Scanner(System.in);
-    private static final int NUMAX = 2;
-    private static Contactos[] contactos = new Contactos[NUMAX];
+    //Solucion minima = array bidimensional
+    //sobresaliente = orientarlo a objetos
     
-    public static List rellenarDatos(){
-        String [] names = new String[NUMAX];
-        String [] email = new String[NUMAX];
-        for (int i=0; i<NUMAX;i++){
-            int numeroTelef = (int)Math.floor(Math.random()*1000+1);
-            System.out.println("Nombre contacto "+i);
-            names[i]=teclado.next();
-            System.out.println("Email contacto "+i);
-            email[i]=teclado.next();
-            contactos[i] = new Contactos(numeroTelef,names[i],email[i]);
+    //empieza por hacelro bidimensional y despues intenta orientarlo a objetos.
+    
+    
+    public static Scanner teclado = new Scanner(System.in);
+    //private int contador = -1;
+    private static final int NUMAX = 2;
+    private static final String[][] contactos = new String[NUMAX][3];
+    private static final String[] datos = {"telefono","nombre","email"};
+    //private static Contactos[] contactos = new Contactos[NUMAX];
+    
+    public static void rellenarDatos(){
+        for (int i = 0; i < contactos.length; i++) {
+            for (int j = 0; j < contactos[i].length; j++) {
+                System.out.println("Introduce el "+datos[j]);
+                contactos[i][j]=teclado.nextLine();
+            }
         }
-        List agenda = Arrays.asList(contactos);
-        return agenda;
+        for (int i=0;i<contactos.length;i++){
+            for (int j=0;j<contactos[i].length;j++){
+                System.out.println(datos[j]+ " " +contactos[i][j]);
+            }
+        }
     }
     public static void mostrarAgenda() {
-        System.out.println(rellenarDatos().toString());
+        
     }
     
-    public static void consultarAgenda(){
-        List consultados = Arrays.asList(rellenarDatos().contains(teclado.next()));
-        System.out.println("El contacto consultado es "+consultados.toString());
+    public static void consultarContacto(){
+        
     }
     
-    public static void eliminarDatos(){
-        List deleted = Arrays.asList(rellenarDatos().remove(teclado.nextInt()));
-        System.out.println("El contacto borrado es "+deleted.toString());
+    public static void eliminarContacto(){
+        
+    }
+    
+    public static void main(String[] args) {
+        mostrarAgenda();
     }
 }
