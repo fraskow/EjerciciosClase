@@ -12,33 +12,38 @@ import java.util.Scanner;
  * @author Admin
  */
 public class Menu {
-     public static void main(String[] args) {
-        Scanner teclado = new Scanner (System.in);
+
+    public static void menu() {
+        Scanner teclado = new Scanner(System.in);
         boolean condicion = false;
-        while (!condicion){
-            System.out.println("1)Añadir 2)Consultar contacto 3)Mostrar agenda 4)Borrar contacto 5)Salir");
-            int x=teclado.nextInt();
-            switch(x){  
-                case 1: 
+        while (!condicion) {
+            System.out.println("1)Añadir 2)Mostrar agenda 3)Constulta contacto 4)Borrar contacto 5)Salir");
+            int x = teclado.nextInt();
+            switch (x) {
+                case 1:
                     System.out.println("Añadir contacto");
-                    //Principal.rellenarDatos();
+                    Principal.añadirContacto();
                     break;
-                case 2: 
-                    System.out.println("Consultar contacto");
-                    //Principal.consultarContacto();
+                case 2:
+                    System.out.println("Mostrar agenda");
+                    Principal.mostrarAgenda();
                     break;
-                case 3: 
-                    System.out.println("Mostrar Agenda");
-                    //Principal.mostrarAgenda();
+                case 3:
+                    System.out.println("Consultar contaco");
+                    Principal.consultarContacto();
                     break;
                 case 4:
                     System.out.println("Eliminar contacto");
-                    //Principal.eliminarContacto();
+                    Principal.eliminarContacto();
                     break;
-                default :
+                default:
                     System.out.println("Saliste del menú o seleccionaste una opción incorrecta");
-                    condicion=true;
+                    condicion = true;
             }
         }
+    }
+
+    public static void main(String[] args) {
+        menu();
     }
 }

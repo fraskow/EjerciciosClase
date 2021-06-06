@@ -10,11 +10,11 @@ package com.arelance.gestiondecontactos;
  */
 public class Contactos {
     
-    private int telefono;
+    private String telefono;
     private String nombre;
     private String eMail;
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     public void setNombre(String nombre) {
@@ -23,7 +23,7 @@ public class Contactos {
     public void seteMail(String eMail) {
         this.eMail = eMail;
     }
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
     public String getNombre() {
@@ -32,7 +32,7 @@ public class Contactos {
     public String geteMail() {
         return eMail;
     }
-    public Contactos(int telefono, String nombre, String eMail) {
+    public Contactos(String telefono, String nombre, String eMail) {
         this.telefono = telefono;
         this.nombre = nombre;
         this.eMail = eMail;
@@ -40,6 +40,6 @@ public class Contactos {
 
     @Override
     public String toString() {
-        return "Contactos{" + "telefono=" + telefono + ", nombre=" + nombre + ", eMail=" + eMail + '}';
+        return "Contacto{" + "telefono=" + telefono + ", nombre=" + nombre + ", eMail=" + eMail + '}';
     }
 }
