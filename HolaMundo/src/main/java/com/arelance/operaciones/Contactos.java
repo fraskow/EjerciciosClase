@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.gestiondecontactos;
+package com.arelance.operaciones;
+
 /**
  *
  * @author Admin
- */
+ */ 
 public class Contactos {
-    
+
     private String telefono;
     private String nombre;
     private String eMail;
@@ -17,21 +18,27 @@ public class Contactos {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public void seteMail(String eMail) {
         this.eMail = eMail;
     }
+
     public String getTelefono() {
         return telefono;
     }
+
     public String getNombre() {
         return nombre;
     }
+
     public String geteMail() {
         return eMail;
     }
+
     public Contactos(String telefono, String nombre, String eMail) {
         this.telefono = telefono;
         this.nombre = nombre;

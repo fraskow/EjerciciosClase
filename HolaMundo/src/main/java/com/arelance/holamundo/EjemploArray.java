@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.operaciones;
+package com.arelance.holamundo;
 import java.util.Arrays;
 import java.util.List;
 // import static java.util.Arrays.*;

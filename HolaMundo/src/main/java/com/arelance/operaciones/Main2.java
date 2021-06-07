@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.gestiondecontactos;
+package com.arelance.operaciones;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -11,11 +11,11 @@ import java.util.Scanner;
  *
  * @author frans
  */
-public class Main2 {
+ /* public class Main2 {
     
-    public static Scanner teclado = new Scanner(System.in);
+  public static Scanner teclado = new Scanner(System.in);
     private static final int MAX = 5;
-    private static final Contactos[] contactos = new Contactos[MAX];
+    //private static final Contactos[] contactos = new Contactos[MAX];
     
     private static void añadir(){
         System.out.println("telefono");
@@ -24,13 +24,13 @@ public class Main2 {
         String nombre = teclado.next();
         System.out.println("email");
         String email = teclado.next();
-        Contactos contacto = new Contactos(telefono, nombre, email);
+        //Contactos contacto = new Contactos(telefono, nombre, email);
         System.out.println("Contacto almacenado");
-        System.out.println(contacto);
+      //  System.out.println(contacto);
     }
-    public static void mostrar(){        
+  /*  public static void mostrar(){        
         System.out.println("^^^^^^^^^^^^^^^^^^");
-        for (Contactos contacts : contactos) {
+       // for (Contactos contacts : contactos) {
             System.out.println(contacts);
         }
         System.out.println("^^^^^^^^^^^^^^^^^^");
@@ -43,4 +43,4 @@ public class Main2 {
     
     public static void main(String[] args) {
     }
-}
+}*/
