@@ -1,7 +1,7 @@
 package com.arelance.gestiondecontactos2;
 
 import static java.lang.Integer.parseInt;
-import java.util.Scanner;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,7 +14,6 @@ import java.util.Scanner;
  */
 public class Principal {
 
-    public static Scanner teclado = new Scanner(System.in);
     private static final int MAX = 5;
     private static final Contacto[] contactos = new Contacto[MAX];
     public static int contador = -1;
@@ -40,10 +39,10 @@ public class Principal {
 
     public static void consultar() {
         String comparacion = RecogerTeclado.recogerTeclado("Nombre del contacto a buscar");
-        for (int i = 0; i < contador+1; i++) {
-            if(contactos[i].getNombre().equals(comparacion) == true){
-                System.out.println("El contacto consultado es "+contactos[i]);
-            }else{
+        for (int i = 0; i < contador + 1; i++) {
+            if (contactos[i].getNombre().equals(comparacion) == true) {
+                System.out.println("El contacto consultado es " + contactos[i]);
+            } else {
                 System.out.println("No existe tal contacto");
             }
         }
