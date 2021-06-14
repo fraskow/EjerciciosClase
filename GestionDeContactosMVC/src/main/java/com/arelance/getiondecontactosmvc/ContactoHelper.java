@@ -10,5 +10,5 @@ package com.arelance.getiondecontactosmvc;
  * @author Admin
  */
 public class ContactoHelper {
-    
+    public static Contacto[] contactos = new Contacto[Controller.agendaMAX];
 }

@@ -5,10 +5,14 @@
  */
 package com.arelance.getiondecontactosmvc;
 
+import static java.lang.Integer.parseInt;
+
 /**
  *
  * @author Admin
  */
 public class Opciones {
-    
+
+    public static int optMenu = RecogeTeclado.recogeTecladoI("Introduce una opcion");
+
 }

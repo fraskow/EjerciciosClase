@@ -11,4 +11,16 @@ package com.arelance.getiondecontactosmvc;
  */
 public class AddContacto {
     
+    public static void recogerDatos() {
+        String nombre = RecogeTeclado.recogeTecladoS("Introduce nombre");
+        String telefono = RecogeTeclado.recogeTecladoS("Introduce telefono");
+        String email = RecogeTeclado.recogeTecladoS("Introduce email");
+        Contacto contacto = new Contacto(nombre, telefono, email);
+        añadir(contacto);
+        System.out.println("Contacto añadido");
+    }
+    
+    public static void añadir(Contacto contacto) {
+        ContactoHelper.contactos[++Controller.contador] = contacto;
+    }
 }

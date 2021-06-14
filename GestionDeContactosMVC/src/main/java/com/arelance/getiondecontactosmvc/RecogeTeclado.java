@@ -5,10 +5,22 @@
  */
 package com.arelance.getiondecontactosmvc;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Admin
  */
 public class RecogeTeclado {
     
+    public static String recogeTecladoS(String msg) {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println(msg);
+        return teclado.next();
+    }
+    public static int recogeTecladoI(String msg){
+        Scanner teclado = new Scanner(System.in);
+        System.out.println(msg);
+        return teclado.nextInt();
+    }
 }

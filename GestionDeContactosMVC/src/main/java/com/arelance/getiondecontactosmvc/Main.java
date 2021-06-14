@@ -7,8 +7,10 @@ package com.arelance.getiondecontactosmvc;
 
 /**
  *
- * @author Admin
+ * @author frans
  */
-public class ModContacto {
-    
+public class Main {
+    public static void main(String[] args) {
+        Menu.menu();
+    }
 }

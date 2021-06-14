@@ -10,5 +10,9 @@ package com.arelance.getiondecontactosmvc;
  * @author Admin
  */
 public class ListContacto {
-    
+    public static void mostrar() {
+        for (int i = 0; i < Controller.contador + 1; i++) {
+            System.out.println(ContactoHelper.contactos[i].toString());
+        }
+    }
 }

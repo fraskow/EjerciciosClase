@@ -10,5 +10,7 @@ package com.arelance.getiondecontactosmvc;
  * @author Admin
  */
 public class Controller {
-    
+    public static boolean menuCondition = false;
+    public static int contador = -1;
+    public static int agendaMAX = 5;
 }

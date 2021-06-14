@@ -10,44 +10,40 @@ import java.util.Scanner;
 
 /**
  *
- * @author Admin
+ * @author frans
  */
-public class Menu {
-
-    public static void menu() {
+public class MenuSearch {
+    
+    public static void menuSub() {
         Scanner teclado = new Scanner(System.in);
         while (!Controller.menuCondition) {
-            System.out.println("1)Añadir 2)Mostrar agenda 3)Constulta contacto 4)Borrar contacto 5)Salir");
+            System.out.println("1)Nombre 2)Telefono 3)Email 4)Salir");
             int x;
             try {
                 x = teclado.nextInt();
                 switch (x) {
                     case 1:
-                        System.out.println("Añadir contacto");
-                        AddContacto.recogerDatos();
+                        System.out.println("Por nombre");
+                        SearchContacto.consultarN();
                         break;
                     case 2:
-                        System.out.println("Mostrar agenda");
-                        ListContacto.mostrar();
+                        System.out.println("Por telefono");
+                        SearchContacto.consultarT();
                         break;
                     case 3:
-                        System.out.println("Consultar contacto");
-                        MenuSearch.menuSub();
+                        System.out.println("Por email");
+                        SearchContacto.consultarE();
                         break;
                     case 4:
-                        System.out.println("Eliminar contacto");
-                        DeleteContacto.borrar();
-                        break;
-                    case 5:
-                        System.out.println("Saliste del menú");
-                        Controller.menuCondition = true;
+                        System.out.println("Saliste del menú de edición");
+                        Menu.menu();
                         break;
                     default:
                         System.out.println("Pulsaste una opción incorrecta");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Debes pulsar un número");
-                menu();
+                menuSub();
             }
         }
     }
