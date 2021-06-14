@@ -14,7 +14,7 @@ public class Contacto {
     private String nombre;
     private String email;
 
-    public Contacto(String telefono, String nombre, String email) {
+    public Contacto(String nombre, String telefono, String email) {
         this.telefono = telefono;
         this.nombre = nombre;
         this.email = email;
@@ -46,7 +46,7 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return "Contacto{" + "telefono=" + telefono + ", nombre=" + nombre + ", email=" + email + '}';
+        return "Contacto{" + "nombre=" + nombre + ", telefono=" + telefono + ", email=" + email + '}';
     }
     
 }

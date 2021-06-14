@@ -12,23 +12,23 @@ import java.util.Scanner;
  *
  * @author frans
  */
-public class MenuSearch {
+public class MenuSearch extends Menu{
     
     public static void menuSub() {
         Scanner teclado = new Scanner(System.in);
         while (!Controller.menuCondition) {
-            System.out.println("1)Nombre 2)Telefono 3)Email 4)Salir");
+            System.out.println("1)Telefono 2)Nombre 3)Email 4)Salir");
             int x;
             try {
                 x = teclado.nextInt();
                 switch (x) {
                     case 1:
-                        System.out.println("Por nombre");
-                        SearchContacto.consultarN();
-                        break;
-                    case 2:
                         System.out.println("Por telefono");
                         SearchContacto.consultarT();
+                        break;
+                    case 2:
+                        System.out.println("Por nombre");
+                        SearchContacto.consultarN();
                         break;
                     case 3:
                         System.out.println("Por email");
