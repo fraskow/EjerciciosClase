@@ -51,7 +51,7 @@ public class Persona implements Comparable<Persona> {
         listaPersonas.add(new Persona("Tete"));
         Collections.sort(listaPersonas);
         System.out.println("Ordenados " + listaPersonas);
-        System.out.println(Collections.binarySearch(listaPersonas, new Persona("Eva")));
+        System.out.println(Collections.binarySearch(listaPersonas, new Persona("Ana")));
         listaPersonas.forEach((Persona t) -> {
             // clase anonima interna
             System.out.println(t.nombre);   // clase anonima convertida en lambda
