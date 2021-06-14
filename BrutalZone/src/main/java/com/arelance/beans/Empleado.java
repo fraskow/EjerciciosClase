@@ -5,17 +5,41 @@
  */
 package com.arelance.beans;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Admin
  */
 public class Empleado extends Persona {
-    public static void main(String[] args) {
-        Empleado x = new Empleado();
-        Persona y = new Empleado();
-        Persona z = new Persona();
-        System.out.println(x instanceof Persona);
-        System.out.println(y instanceof Empleado);
-        System.out.println(z.getClass()==y.getClass());
+
+    public int salario;
+
+    public Empleado(String nombre, int salario) {
+        super(nombre);
+        this.salario = salario;
     }
+
+    public int getSalario() {
+        return salario;
+    }
+
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
+
+    public static void main(String[] args) {
+        Empleado x = new Empleado("Pepe", 55);
+        Empleado y = new Empleado("Pepe", 22);
+        ArrayList<Empleado> empleados = new ArrayList<>();
+        empleados.add(x);
+        empleados.add(y);
+        System.out.println(empleados.toString());
+        //Persona z = new Persona();
+        //System.out.println(x instanceof Persona);
+        //System.out.println(y instanceof Empleado);
+        //System.out.println(z.getClass()==y.getClass());
+        //System.out.println(Collections.sort());
+    }
+
 }
