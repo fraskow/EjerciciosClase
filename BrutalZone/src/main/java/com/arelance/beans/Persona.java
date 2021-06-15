@@ -7,7 +7,7 @@ package com.arelance.beans;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.Objects;
 
 /**
  *
@@ -15,7 +15,7 @@ import java.util.Comparator;
  */
 public class Persona implements Comparable<Persona> {
 
-    private final String nombre;
+    public final String nombre;
 
     public Persona(String nombre) {
         this.nombre = nombre;
@@ -36,9 +36,32 @@ public class Persona implements Comparable<Persona> {
     @Override
     public int compareTo(Persona o) {
         return this.nombre.compareTo(o.nombre);
-
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        return Objects.equals(this.nombre, other.nombre);
+    }
+
+    
+    
     public static void main(String[] args) {
         System.out.println(persona1.nombre.compareTo(persona2.nombre));
         System.out.println(persona2.nombre.compareTo(persona1.nombre));
