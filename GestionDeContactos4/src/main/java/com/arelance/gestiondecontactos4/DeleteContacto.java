@@ -5,18 +5,22 @@
  */
 package com.arelance.gestiondecontactos4;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author frans
  */
 public class DeleteContacto {
-    
-    public static void borrar(){
-    if (ContactoHelper.contacts.isEmpty()) {
+
+    public static void borrar() {
+        if (ContactoHelper.contacts.isEmpty()) {
             System.out.println("No hay nada que borrar");
         } else {
             int index = RecogeTeclado.recogeTecladoI("Indice de contacto a eliminar");
-            ContactoHelper.contacts.remove(index);
+            ArrayList<Contacto> borrados = new ArrayList<>();
+            borrados.add(ContactoHelper.contacts.remove(index));
+            System.out.println("Los contactos borrados son "+borrados);
         }
     }
 }

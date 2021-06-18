@@ -11,15 +11,15 @@ package com.arelance.gestiondecontactos4;
  */
 public class SearchContacto {
 
-    public static String nameComp = RecogeTeclado.recogeTecladoS("Nombre a buscar");
-    public static String teleComp = RecogeTeclado.recogeTecladoS("Telefono a buscar");
-    public static String emailComp = RecogeTeclado.recogeTecladoS("Email a buscar");
-    public static Contacto comparacion = new Contacto(nameComp, teleComp, emailComp);
-
     public static void consultar() {
         if (ContactoHelper.contacts.isEmpty()) {
             System.out.println("No puedes buscar en una agenda vacía");
         } else {
+            String nameComp = RecogeTeclado.recogeTecladoS("Nombre a buscar");
+            String teleComp = RecogeTeclado.recogeTecladoS("Telefono a buscar");
+            String emailComp = RecogeTeclado.recogeTecladoS("Email a buscar");
+            Contacto comparacion = new Contacto(nameComp, teleComp, emailComp);
+
             if (ContactoHelper.contacts.contains(comparacion)) {
                 System.out.println(comparacion.toString());
             } else {
