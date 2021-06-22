@@ -13,8 +13,7 @@ import java.util.List;
  */
 public class Libreria {
     // esto es el modelo.
-    
-    List <Libro> libros;
-    
-    
+
+    List<Libro> libros;
+
 }

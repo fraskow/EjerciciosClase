@@ -12,15 +12,14 @@ import java.util.Objects;
  * @author Admin
  */
 public class Libro {
-    
+
     //esto un constructor de objeto y modelo tambien
-    
     private String titulo;
     private String ISBN;
 
     public Libro() {
     }
-    
+
     public Libro(String titulo, String ISBN) {
         this.titulo = titulo;
         this.ISBN = ISBN;
@@ -59,7 +58,5 @@ public class Libro {
         }
         return Objects.equals(this.ISBN, other.ISBN);
     }
-    
-    
-    
+
 }
