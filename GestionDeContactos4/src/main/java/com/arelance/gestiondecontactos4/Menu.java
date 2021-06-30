@@ -15,12 +15,14 @@ import java.util.Scanner;
 public class Menu {
 
     public static void menu() {
+        //los constructores son los únicos métodos que deben llamarse como la clase
         Scanner teclado = new Scanner(System.in);
         while (!Constants.menuCondition) {
             System.out.println("1)Añadir 2)Mostrar agenda 3)Constulta contacto 4)Borrar contacto 5)Salir");
             int x;
             try {
                 x = teclado.nextInt();
+                //no es semántica
                 switch (x) {
                     case 1:
                         System.out.println("Añadir contacto");
@@ -40,6 +42,7 @@ public class Menu {
                         break;
                     case 5:
                         System.out.println("Saliste del menú");
+                        //mejor System.exit(0); es más claro lo conoce todo el mundo
                         Constants.menuCondition = true;
                         break;
                     default:

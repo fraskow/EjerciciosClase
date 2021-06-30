@@ -9,6 +9,7 @@ package com.arelance.getiondecontactosmvc;
  *
  * @author Admin
  */
+// Esto no es un controller.... no tiene acciones de control
 public class Controller {
     public static boolean menuCondition = false;
     public static int contador = -1;

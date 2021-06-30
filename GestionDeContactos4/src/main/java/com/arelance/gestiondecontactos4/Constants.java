@@ -10,6 +10,7 @@ package com.arelance.gestiondecontactos4;
  * @author frans
  */
 public class Constants {
+    // si son constantes que no lo son deben declararse en mayúsculas
     public static boolean menuCondition = false;
     public static int contador = -1;
     public static int agendaMAX = 5;

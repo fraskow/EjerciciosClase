@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.players;
+package com.arelance.calcucommand;
 
-import java.util.Arrays;
-import java.util.List;
+import com.arelance.menu.Menu;
 
 /**
  *
- * @author Admin
+ * @author frans
  */
-public class ListaEquipos {
-    
+public class Main {
+    public static void main(String[] args) {
+        Menu.menu();
+    }
 }

@@ -9,14 +9,14 @@ package com.arelance.getiondecontactosmvc;
  *
  * @author Admin
  */
-public class Contacto {
+public class Contacto{
     private String telefono;
-    private String nombre;
+    public static String nombre;
     private String email;
 
     public Contacto(String nombre, String telefono, String email) {
         this.telefono = telefono;
-        this.nombre = nombre;
+        Contacto.nombre = nombre;
         this.email = email;
     }
 
@@ -33,7 +33,7 @@ public class Contacto {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        Contacto.nombre = nombre;
     }
 
     public String getEmail() {
@@ -48,5 +48,4 @@ public class Contacto {
     public String toString() {
         return "Contacto{" + "nombre=" + nombre + ", telefono=" + telefono + ", email=" + email + '}';
     }
-    
 }

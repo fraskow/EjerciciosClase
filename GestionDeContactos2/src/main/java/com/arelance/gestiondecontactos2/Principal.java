@@ -12,6 +12,7 @@ import static java.lang.Integer.parseInt;
  *
  * @author Admin
  */
+// es muy monolítico
 public class Principal {
 
     private static final int MAX = 5;

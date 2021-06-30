@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.players;
+package com.calcucommand.operaciones;
 
 /**
  *
- * @author Admin
+ * @author frans
  */
-public class Principal {
-    public static void main(String[] args) {
-        
-    }
+public class Division {
+    
 }
