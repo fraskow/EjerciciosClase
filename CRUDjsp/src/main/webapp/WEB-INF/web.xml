@@ -4,6 +4,10 @@
         <description>HttpSessionListener</description>
         <listener-class>com.arelance.crudjsp.test.CreateUserList</listener-class>
     </listener>
+    <listener>
+        <description>RequestAttributeListener</description>
+        <listener-class>com.arelance.crudjsp.test.NewServletListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>CRUDServlet</servlet-name>
         <servlet-class>com.arelance.crudjsp.test.CRUDServlet</servlet-class>

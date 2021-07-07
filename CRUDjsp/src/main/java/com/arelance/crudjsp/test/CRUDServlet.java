@@ -5,11 +5,7 @@ package com.arelance.crudjsp.test;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,20 +28,50 @@ public class CRUDServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String name = request.getParameter("name");
         String apellidos = request.getParameter("apellidos");
-        String edad = request.getParameter("edad");
+        Integer edad = Integer.parseInt(request.getParameter("edad"));
         String boton = request.getParameter("boton");
-
-        Set<Usuario> listado = (Set<Usuario>) request.getSession().getAttribute("listado");
+        Usuario currentUser = UsuarioHelper.currentUser(new Usuario(name,apellidos,edad));
+        
+        
         if (boton.equals("save")) {
-            listado.add(new Usuario(name, apellidos, edad));
-            request.getServletContext().getRequestDispatcher("/Listado.jsp").forward(request, response);
+            AccionAlta alta = new AccionAlta();
+            alta.exectute(currentUser);
+            response.sendRedirect("./Listado.jsp");
         } else if (boton.equals("delete")) {
-            listado.remove(listado.contains(new Usuario(name, apellidos, edad)));
-            request.getServletContext().getRequestDispatcher("/Listado.jsp").forward(request, response);
+            AccionBaja baja = new AccionBaja();
+            baja.exectute(currentUser);
+            response.sendRedirect("./Listado.jsp");
         }
     }
+//    protected RequestDispatcher processRequest(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        String name = request.getParameter("name");
+//        String apellidos = request.getParameter("apellidos");
+//        Integer edad = Integer.parseInt(request.getParameter("edad"));
+//        String boton = request.getParameter("boton");
+//        RequestDispatcher dispatcherDefault = request.getServletContext().getRequestDispatcher("/Listado.jsp");
+////        Set<Usuario> usuarios = (Set<Usuario>) request.getSession().getAttribute("listado");
+//        if (boton.equals("save")) {
+//            AccionAlta alta = new AccionAlta();
+//            alta.exectute(new Usuario(name, apellidos, edad));
+//            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/Listado.jsp");
+//            return dispatcher;
+////            usuarios.add(new Usuario(name, apellidos, edad));
+////            request.getServletContext().getRequestDispatcher("/Listado.jsp").forward(request, response);
+////            response.sendRedirect("./Listado.jsp");
+//        } else if (boton.equals("delete")) {
+//            AccionBaja baja = new AccionBaja();
+//            baja.exectute(new Usuario(name, apellidos, edad));
+//            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/Listado.jsp");
+//            return dispatcher;
+//            //request.getServletContext().getRequestDispatcher("/Listado.jsp").forward(request, response);
+////            response.sendRedirect("./Listado.jsp");
+//        }
+//        return dispatcherDefault;
+//    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
