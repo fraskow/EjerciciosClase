@@ -13,11 +13,13 @@ import java.util.Set;
  * @author Admin
  */
 public class AccionBaja implements Accion{
-    
-    Set<Usuario> usuarios = new HashSet<>();
-    
+  
+
+    public AccionBaja() {
+    }
+
     @Override
-    public void exectute(Usuario usuario) {
+    public void exectute(Usuario usuario,Set<Usuario> usuarios) {
         usuarios.remove(usuario);
     }
     

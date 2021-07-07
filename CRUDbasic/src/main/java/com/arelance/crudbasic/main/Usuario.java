@@ -12,11 +12,15 @@ import java.util.Objects;
  * @author Admin
  */
 public class Usuario {
-    String nombre;
-    String apellido;
-    Integer edad;
 
-    public Usuario(String nombre, String apellido, Integer edad) {
+    public String nombre;
+    public String apellido;
+    public String edad;
+
+    public Usuario() {
+    }
+
+    public Usuario(String nombre, String apellido, String edad) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -38,11 +42,11 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public Integer getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(Integer edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -75,6 +79,5 @@ public class Usuario {
         }
         return Objects.equals(this.edad, other.edad);
     }
-    
-    
+
 }

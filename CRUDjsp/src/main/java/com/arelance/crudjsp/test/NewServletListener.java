@@ -15,10 +15,11 @@ import javax.servlet.ServletRequestAttributeListener;
  */
 public class NewServletListener implements ServletRequestAttributeListener {
 
+
     @Override
     public void attributeAdded(ServletRequestAttributeEvent srae) {
-        srae.getServletContext().setAttribute("delete", new AccionBaja());
-        srae.getServletContext().removeAttribute("delete");
+//        srae.getServletRequest().setAttribute("delete", new AccionBaja());
+//        srae.getServletRequest().removeAttribute("delete");
     }
 
     @Override

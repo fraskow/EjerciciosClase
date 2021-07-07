@@ -6,19 +6,17 @@
 package com.arelance.crudbasic.main;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Admin
+ * @author frans
  */
-public class ServletCRUD extends HttpServlet {
+public class PostDeleteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,23 +30,14 @@ public class ServletCRUD extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String name = request.getParameter("name");
-        String apellidos = request.getParameter("apellidos");
-        String edad = request.getParameter("edad");
-        String boton = request.getParameter("boton");
-
-        Usuario u = new Usuario(name, apellidos, edad);
+        String decision = request.getParameter("decision");
         Set<Usuario> listado = (Set<Usuario>) request.getSession().getAttribute("listado");
 
-        HttpSession sesion = request.getSession();
-        sesion.setAttribute("currentUser", u);
-
-        if (boton.equals("save")) {
-            listado.add(u);
-            request.getServletContext().getRequestDispatcher("/Lista.jsp").forward(request, response);
-        } else if (boton.equals("delete")) {
-            //listado.remove(new Usuario(name, apellidos, edad));
-            request.getServletContext().getRequestDispatcher("/Seguridad.jsp").forward(request, response);
+        if (decision.equals("si")) {
+            listado.remove(request.getSession().getAttribute("currentUser"));
+            response.sendRedirect("./Lista.jsp"); //preguntar por que no funciona request con sesion;
+        } else if (decision.equals("no")) {
+            request.getServletContext().getRequestDispatcher("/Main.jsp").forward(request, response);
         }
     }
 

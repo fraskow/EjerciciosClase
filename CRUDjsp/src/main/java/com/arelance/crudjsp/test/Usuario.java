@@ -1,6 +1,7 @@
 package com.arelance.crudjsp.test;
 
 import java.util.Objects;
+import java.util.Set;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,7 +17,7 @@ public class Usuario {
     public String nombre;
     public String apellidos;
     public Integer edad;
-
+    
     public Usuario(String nombre, String apellidos, Integer edad) {
         this.nombre = nombre;
         this.apellidos = apellidos;

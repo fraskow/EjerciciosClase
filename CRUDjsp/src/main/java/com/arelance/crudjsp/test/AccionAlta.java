@@ -5,7 +5,6 @@
  */
 package com.arelance.crudjsp.test;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -14,10 +13,11 @@ import java.util.Set;
  */
 public class AccionAlta implements Accion {
 
-    Set<Usuario> usuarios = new HashSet<>();
+    public AccionAlta() {
+    }
 
     @Override
-    public void exectute(Usuario usuario) {
+    public void exectute(Usuario usuario, Set<Usuario> usuarios) {
         usuarios.add(usuario);
     }
 

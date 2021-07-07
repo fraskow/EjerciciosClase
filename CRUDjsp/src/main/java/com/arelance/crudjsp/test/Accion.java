@@ -5,10 +5,12 @@
  */
 package com.arelance.crudjsp.test;
 
+import java.util.Set;
+
 /**
  *
  * @author Admin
  */
 public interface Accion {
-    public void exectute(Usuario usuario);
+    public void exectute(Usuario usuario, Set<Usuario> usuarios);
 }

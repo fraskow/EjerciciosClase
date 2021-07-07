@@ -1,5 +1,6 @@
-com\arelance\crudbasic\main\CreaLista.class
 com\arelance\crudbasic\main\ServletCRUD.class
+com\arelance\crudbasic\main\PostDeleteServlet.class
+com\arelance\crudbasic\JAXRSConfiguration.class
+com\arelance\crudbasic\main\CreaLista.class
 com\arelance\crudbasic\main\Usuario.class
 com\arelance\crudbasic\resources\JavaEE8Resource.class
-com\arelance\crudbasic\JAXRSConfiguration.class

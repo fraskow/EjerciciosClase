@@ -8,9 +8,17 @@
         <servlet-name>ServletCRUD</servlet-name>
         <servlet-class>com.arelance.crudbasic.main.ServletCRUD</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PostDeleteServlet</servlet-name>
+        <servlet-class>com.arelance.crudbasic.main.PostDeleteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletCRUD</servlet-name>
         <url-pattern>/ServletCRUD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostDeleteServlet</servlet-name>
+        <url-pattern>/PostDeleteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,6 +6,8 @@ package com.arelance.crudjsp.test;
  * and open the template in the editor.
  */
 import java.io.IOException;
+import java.util.Set;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +25,7 @@ public class CRUDServlet extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
+     * @return
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
@@ -33,16 +36,16 @@ public class CRUDServlet extends HttpServlet {
         String apellidos = request.getParameter("apellidos");
         Integer edad = Integer.parseInt(request.getParameter("edad"));
         String boton = request.getParameter("boton");
-        Usuario currentUser = UsuarioHelper.currentUser(new Usuario(name,apellidos,edad));
-        
-        
+        Usuario currentUser = UsuarioHelper.currentUser(new Usuario(name, apellidos, edad));
+        Set<Usuario> usuarios = (Set<Usuario>) request.getSession().getAttribute("listado");
+
         if (boton.equals("save")) {
             AccionAlta alta = new AccionAlta();
-            alta.exectute(currentUser);
+            alta.exectute(currentUser, usuarios);
             response.sendRedirect("./Listado.jsp");
         } else if (boton.equals("delete")) {
             AccionBaja baja = new AccionBaja();
-            baja.exectute(currentUser);
+            baja.exectute(currentUser, usuarios);
             response.sendRedirect("./Listado.jsp");
         }
     }
@@ -52,11 +55,13 @@ public class CRUDServlet extends HttpServlet {
 //        String apellidos = request.getParameter("apellidos");
 //        Integer edad = Integer.parseInt(request.getParameter("edad"));
 //        String boton = request.getParameter("boton");
+//        Usuario currentUser = UsuarioHelper.currentUser(new Usuario(name,apellidos,edad));
+//        Set<Usuario> usuarios = (Set<Usuario>) request.getSession().getAttribute("listado");
 //        RequestDispatcher dispatcherDefault = request.getServletContext().getRequestDispatcher("/Listado.jsp");
-////        Set<Usuario> usuarios = (Set<Usuario>) request.getSession().getAttribute("listado");
+//        
 //        if (boton.equals("save")) {
 //            AccionAlta alta = new AccionAlta();
-//            alta.exectute(new Usuario(name, apellidos, edad));
+//            alta.exectute(currentUser,usuarios);
 //            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/Listado.jsp");
 //            return dispatcher;
 ////            usuarios.add(new Usuario(name, apellidos, edad));
@@ -64,10 +69,10 @@ public class CRUDServlet extends HttpServlet {
 ////            response.sendRedirect("./Listado.jsp");
 //        } else if (boton.equals("delete")) {
 //            AccionBaja baja = new AccionBaja();
-//            baja.exectute(new Usuario(name, apellidos, edad));
+//            baja.exectute(currentUser,usuarios);
 //            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/Listado.jsp");
 //            return dispatcher;
-//            //request.getServletContext().getRequestDispatcher("/Listado.jsp").forward(request, response);
+////            request.getServletContext().getRequestDispatcher("/Listado.jsp").forward(request, response);
 ////            response.sendRedirect("./Listado.jsp");
 //        }
 //        return dispatcherDefault;

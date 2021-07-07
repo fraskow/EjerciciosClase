@@ -18,10 +18,10 @@
 
         <%
             Set<Usuario> usuarios = (Set<Usuario>) request.getSession().getAttribute("listado");
-
+            
             for (Usuario usuario : usuarios) {
                 out.print("<li name='listado'>");
-                out.print(usuario.getNombre() + " " + usuario.getApellidos() + " " + usuario.getEdad() + " ");
+                out.print(usuario.getNombre() + " " + usuario.getApellidos() + " " + usuario.getEdad());
                 out.print("</li>");
             }
 

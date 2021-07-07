@@ -10,6 +10,7 @@ package com.arelance.crudjsp.test;
  * @author Admin
  */
 public class UsuarioHelper {
+    
     public static Usuario currentUser(Usuario usuario){
         return usuario;
     }

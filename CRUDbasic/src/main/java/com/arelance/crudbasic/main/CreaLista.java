@@ -19,6 +19,7 @@ public class CreaLista implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent se) {
         se.getSession().setAttribute("listado", new HashSet<Usuario>());
+        //se.getSession().setAttribute("currentUser", new Usuario());
     }
 
     @Override

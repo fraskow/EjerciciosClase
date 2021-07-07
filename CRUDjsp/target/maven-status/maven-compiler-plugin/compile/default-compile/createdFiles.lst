@@ -2,6 +2,7 @@ com\arelance\crudjsp\test\CreateUserList.class
 com\arelance\crudjsp\test\Usuario.class
 com\arelance\crudjsp\test\Accion.class
 com\arelance\crudjsp\JAXRSConfiguration.class
+com\arelance\crudjsp\test\NewServletListener.class
 com\arelance\crudjsp\test\AccionAlta.class
 com\arelance\crudjsp\test\UsuarioHelper.class
 com\arelance\crudjsp\resources\JavaEE8Resource.class
