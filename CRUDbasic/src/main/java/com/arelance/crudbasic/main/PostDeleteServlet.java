@@ -35,7 +35,8 @@ public class PostDeleteServlet extends HttpServlet {
 
         if (decision.equals("si")) {
             listado.remove(request.getSession().getAttribute("currentUser"));
-            response.sendRedirect("./Lista.jsp"); //preguntar por que no funciona request con sesion;
+            request.getRequestDispatcher("./Lista.jsp").forward(request,response);
+            //response.sendRedirect("./Lista.jsp"); //preguntar por que no funciona request con sesion;
         } else if (decision.equals("no")) {
             request.getServletContext().getRequestDispatcher("/Main.jsp").forward(request, response);
         }
