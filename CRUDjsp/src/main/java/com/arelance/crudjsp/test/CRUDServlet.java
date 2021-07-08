@@ -7,7 +7,6 @@ package com.arelance.crudjsp.test;
  */
 import java.io.IOException;
 import java.util.Set;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +24,6 @@ public class CRUDServlet extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @return
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */

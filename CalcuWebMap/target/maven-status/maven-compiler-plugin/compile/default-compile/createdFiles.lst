@@ -1,0 +1,8 @@
+com\arelance\calcuwebmap\test\OpMult.class
+com\arelance\calcuwebmap\JAXRSConfiguration.class
+com\arelance\calcuwebmap\test\Operacion.class
+com\arelance\calcuwebmap\test\OpDiv.class
+com\arelance\calcuwebmap\test\OpSuma.class
+com\arelance\calcuwebmap\resources\JavaEE8Resource.class
+com\arelance\calcuwebmap\test\CalcuMapaServlet.class
+com\arelance\calcuwebmap\test\OpResta.class
