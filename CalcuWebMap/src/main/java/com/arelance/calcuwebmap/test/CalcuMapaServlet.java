@@ -6,9 +6,6 @@
 package com.arelance.calcuwebmap.test;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,22 +29,20 @@ public class CalcuMapaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        Map<String,Operacion> operaciones = new HashMap<>();
-        
-        operaciones.put("suma", new OpSuma());
-        operaciones.put("resta", new OpResta());
-        operaciones.put("mult", new OpMult());
-        operaciones.put("div", new OpDiv());
+
+        Map<String, Operacion> operaciones = (Map<String, Operacion>) request.getAttribute("operaciones");
 
         double x = Double.parseDouble(request.getParameter("op1"));
         double y = Double.parseDouble(request.getParameter("op2"));
         String boton = request.getParameter("boton");
-        double op = operaciones.get(boton).calcular(x, y);
-        String resultado = request.getParameter("resultado");
+        double resultado = 0;
+        
+        resultado = operaciones.get(boton).calcular(x, y);
+        request.setAttribute("resultado", resultado);
+        
+        //terminar
 
         request.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -4,6 +4,7 @@
     Author     : frans
 --%>
 
+<%@page import="com.arelance.calcuwebmap.test.CalcuMapaServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@
             <label>Dato 2</label>
             <input type="number" name="op2" placeholder="0">
             <label>Resultado</label>
-            <input type="text" name="resultado" placeholder="0">
+            <input type="text" name="resultado" placeholder="0" value="<%=request.getAttribute("resultado") %>">
             <input type="submit" name="boton" value="suma">
             <input type="submit" name="boton" value="resta">
             <input type="submit" name="boton" value="mult">
