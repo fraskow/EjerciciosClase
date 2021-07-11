@@ -5,13 +5,16 @@
  */
 package com.arelance.tiendaweb2.controller;
 
+import com.arelance.tiendaweb2.beans.LoginData;
+import com.arelance.tiendaweb2.beans.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,27 +34,39 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-
+        
+        Map<LoginData, Usuario> userMapped = (Map<LoginData, Usuario>) request.getServletContext().getAttribute("users");
         String boton = request.getParameter("boton");
         String nick = request.getParameter("nick");
         String pw = request.getParameter("pw");
+        LoginData currentUser = new LoginData(nick, pw);
+       
         String pwConfirmed = request.getParameter("pwConfirmed");
+        int contador = 0;
+        request.getSession().setAttribute("contador", contador);
+        
 
-        if (pw.equals(pwConfirmed)) {
-
-            if (boton.equals("login")) {
-                request.setAttribute("nick", nick);
-                request.setAttribute("pw", pw);
-                //request.getRequestDispatcher("lista_articulos.jsp").forward(request, response);
-            } else if (boton.equals("clear")) {
-                
+        if (boton.equals("login")) {
+            if (pwConfirmed.equals(pw)) {
+                if (userMapped.keySet().contains(currentUser)){
+                        request.getSession(true);
+                        request.getRequestDispatcher("./tienda.jsp").forward(request, response);
+                    
+                } else {
+                    contador++;
+                    if (contador > 3) {
+                        request.getRequestDispatcher("./index.jsp").forward(request, response);
+                    } else if (contador <= 3) {
+                        request.getRequestDispatcher("./errorLogin.jsp").forward(request, response);
+                    }
+                }
+            } else {
+                request.getRequestDispatcher("./errorLogin.jsp").forward(request, response);
             }
-
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

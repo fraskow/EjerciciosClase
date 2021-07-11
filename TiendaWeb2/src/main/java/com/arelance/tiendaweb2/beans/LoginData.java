@@ -5,30 +5,62 @@
  */
 package com.arelance.tiendaweb2.beans;
 
-import java.util.Map;
+import java.util.Objects;
 
 /**
  *
  * @author Admin
  */
 public class LoginData {
-
-    public Map<Nick,Password> logData;
-
-    public LoginData() {
-    }
     
+    private String nick;
+    private String pw;
 
-    public LoginData(Map<Nick, Password> logData) {
-        this.logData = logData;
+    public LoginData(String nick, String pw) {
+        this.nick = nick;
+        this.pw = pw;
     }
 
-    public Map<Nick, Password> getLogData() {
-        return logData;
+    public String getNick() {
+        return nick;
     }
 
-    public void setLogData(Map<Nick, Password> logData) {
-        this.logData = logData;
+    public void setNick(String nick) {
+        this.nick = nick;
     }
-    
+
+    public String getPw() {
+        return pw;
+    }
+
+    public void setPw(String pw) {
+        this.pw = pw;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.nick);
+        hash = 79 * hash + Objects.hashCode(this.pw);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LoginData other = (LoginData) obj;
+        if (!Objects.equals(this.nick, other.nick)) {
+            return false;
+        }
+        return Objects.equals(this.pw, other.pw);
+    }
+
 }

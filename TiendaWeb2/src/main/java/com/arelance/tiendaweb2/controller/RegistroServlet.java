@@ -5,8 +5,12 @@
  */
 package com.arelance.tiendaweb2.controller;
 
+import com.arelance.tiendaweb2.beans.DatosPersonales;
+import com.arelance.tiendaweb2.beans.Direccion;
+import com.arelance.tiendaweb2.beans.LoginData;
+import com.arelance.tiendaweb2.beans.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,18 +36,31 @@ public class RegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RegistroServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RegistroServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        String nick = request.getParameter("nick");
+        String pw = request.getParameter("pwRegistro");
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String edad = request.getParameter("edad");
+        String cp = request.getParameter("cp");
+        String calle = request.getParameter("calle");
+        String num = request.getParameter("num");
+        
+        Map<LoginData, Usuario> userMapped = (Map<LoginData, Usuario>) request.getServletContext().getAttribute("users");
+        LoginData newLog = new LoginData(nick, pw);
+        Usuario newUser = new Usuario(new DatosPersonales(nombre, apellido, edad), new Direccion(cp, num, calle));
+        
+        //userMapped.put(newLog, newUser);
+        
+        if(userMapped.containsKey(newLog)){
+            request.getRequestDispatcher("./errorRegistro.jsp").forward(request, response);
+        } else{
+            userMapped.put(newLog, newUser);
+            request.getRequestDispatcher("./login.jsp").forward(request, response);
         }
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

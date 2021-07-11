@@ -21,7 +21,7 @@
             <label>Password confimacion</label>
             <input type="text" name="pwConfirmed" required>
             <input type="submit" name="boton" value="login">
-            <input type="submit" name="boton" value="clear">
+            <input type="reset" name="boton" value="clear">
         </form>
     </body>
 </html>

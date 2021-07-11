@@ -17,21 +17,23 @@
             <label>Nick</label>
             <input type="text" name="nick" required>
             <label>Password</label>
-            <input type="text" name="pw" required>
+            <input type="text" name="pwRegistro" required>
             <label>Nombre</label>
             <input type="text" name="nombre" required>
             <label>Apellido</label>
             <input type="text" name="apellido" required>
             <label>Edad</label>
-            <input type="text" name="edad">
+            <input type="text" name="edad" required>
+            <br>
             <label>Direccion</label>
             <label>CP</label>
-            <input type="text" name="cp">
+            <input type="text" name="cp" required>
             <label>Calle</label>
-            <input type="text" name="calle">
+            <input type="text" name="calle" required>
             <label>Nº</label>
-            <input type="text" name="num">
+            <input type="text" name="num" required>
             <input type="submit" name="boton" value="registro">
+            <input type="reset" name="boton" value="clear">
         </form>
     </body>
 </html>
