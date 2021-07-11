@@ -3,7 +3,7 @@
     Created on : 10-jul-2021, 17:24:26
     Author     : frans
 --%>
-
+<%@page import="com.arelance.tiendaweb2.controller.TiendaServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,17 +13,17 @@
     </head>
     <body>
         <h1>Tienda</h1>
-        <form>
+        <form action="TiendaServlet" name="tiendaForm">
             <label>Deportes - pelota futbol</label>
-            <input type="checkbox" name="articulos"  value="pelota">
+            <input type="radio" name="articulos"  value="pelota">
             <label>Deportes - botas baloncesto</label>
-            <input type="checkbox" name="articulos" value="botas">
+            <input type="radio" name="articulos" value="botas">
             <label>Hogar - mesita de noche</label>
-            <input type="checkbox" name="articulos" value="mesita">
+            <input type="radio" name="articulos" value="mesita">
             <label>Hogar - lampara</label>
-            <input type="checkbox" name="articulos" value="lampara">
+            <input type="radio" name="articulos" value="lampara">
             <label>Textil - camiseta</label>
-            <input type="checkbox" name="articulos" value="camiseta">
+            <input type="radio" name="articulos" value="camiseta">
             <label>Textil - vestido</label>
             <input type="radio" name="articulos" value="vestido">
             <input type="submit" name="boton" value="comprar">

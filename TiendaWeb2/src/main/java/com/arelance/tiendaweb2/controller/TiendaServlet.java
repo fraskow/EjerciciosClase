@@ -5,23 +5,24 @@
  */
 package com.arelance.tiendaweb2.controller;
 
+import com.arelance.tiendaweb2.beans.Articulo;
+import com.arelance.tiendaweb2.beans.ArticuloCategorias;
 import com.arelance.tiendaweb2.beans.LoginData;
-import com.arelance.tiendaweb2.beans.Usuario;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Admin
+ * @author frans
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "TiendaServlet", urlPatterns = {"/TiendaServlet"})
+public class TiendaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,40 +35,43 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        Map<LoginData, Usuario> userMapped = (Map<LoginData, Usuario>) request.getServletContext().getAttribute("users");
-        String boton = request.getParameter("boton");
-        String nick = request.getParameter("nick");
-        String pw = request.getParameter("pw");
-        LoginData currentUser = new LoginData(nick, pw);
-       
-        String pwConfirmed = request.getParameter("pwConfirmed");
-        int contador = 0;
-        request.getSession().setAttribute("contador", contador);
-        
 
-        if (boton.equals("login")) {
-            if (pwConfirmed.equals(pw)) {
-                if (userMapped.keySet().contains(currentUser)){
-                        request.getSession(true);
-                        request.getSession().setAttribute("currentUser", currentUser);
-                        request.getRequestDispatcher("./tienda.jsp").forward(request, response);
-                    
-                } else {
-                    contador++;
-                    if (contador > 3) {
-                        request.getRequestDispatcher("./index.jsp").forward(request, response);
-                    } else if (contador <= 3) {
-                        request.getRequestDispatcher("./errorLogin.jsp").forward(request, response);
-                    }
-                }
-            } else {
-                request.getRequestDispatcher("./errorLogin.jsp").forward(request, response);
+        LoginData currentUser = (LoginData) request.getSession().getAttribute("currentUser");
+        Map<LoginData, Articulo> compras = (Map<LoginData, Articulo>) request.getSession().getAttribute("compras");
+
+        String[] articulos = request.getParameterValues("articulos");
+
+        for (String articulo : articulos) {
+            switch (articulo) {
+                case "pelota":
+                    Articulo pelota = new Articulo(ArticuloCategorias.DEPORTE, "pelota", "breve descripcion de pelota");
+                    compras.put(currentUser, pelota);
+                    break;
+                case "botas":
+                    Articulo botas = new Articulo(ArticuloCategorias.DEPORTE, "botas", "breve descripcion de botas");
+                    compras.put(currentUser, botas);
+                    break;
+                case "mesita":
+                    Articulo mesita = new Articulo(ArticuloCategorias.HOGAR, "mesita", "breve descripcion de mesita");
+                    compras.put(currentUser, mesita);
+                    break;
+                case "lampara":
+                    Articulo lampara = new Articulo(ArticuloCategorias.HOGAR, "lampara", "breve descripcion de lampara");
+                    compras.put(currentUser, lampara);
+                    break;
+                case "camiseta":
+                    Articulo camiseta = new Articulo(ArticuloCategorias.HOGAR, "camiseta", "breve descripcion de camiseta");
+                    compras.put(currentUser, camiseta);
+                    break;
+                case "vestido":
+                    Articulo vestido = new Articulo(ArticuloCategorias.HOGAR, "vestido", "breve descripcion de vestido");
+                    compras.put(currentUser, vestido);
+                    break;
             }
         }
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
