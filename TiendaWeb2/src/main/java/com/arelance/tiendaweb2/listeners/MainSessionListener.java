@@ -8,7 +8,6 @@ package com.arelance.tiendaweb2.listeners;
 import com.arelance.tiendaweb2.beans.Articulo;
 import com.arelance.tiendaweb2.beans.ArticuloCategorias;
 import com.arelance.tiendaweb2.beans.LoginData;
-import com.sun.corba.se.spi.presentation.rmi.StubAdapter;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpSessionEvent;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpSessionListener;
  *
  * @author frans
  */
-public class NewServletListener implements HttpSessionListener {
+public class MainSessionListener implements HttpSessionListener {
 
     @Override
     public void sessionCreated(HttpSessionEvent se) {
@@ -28,7 +27,6 @@ public class NewServletListener implements HttpSessionListener {
         Articulo articuloComprado = new Articulo(ArticuloCategorias.DEPORTE, "tenis", "breve descripcion de tenis");
         
         compras.put(currentUser, articuloComprado);
-        
         
         se.getSession().setAttribute("compras", compras);
     }

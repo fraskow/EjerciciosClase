@@ -9,7 +9,6 @@ import com.arelance.tiendaweb2.beans.Articulo;
 import com.arelance.tiendaweb2.beans.ArticuloCategorias;
 import com.arelance.tiendaweb2.beans.LoginData;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,32 +41,10 @@ public class TiendaServlet extends HttpServlet {
         String[] articulos = request.getParameterValues("articulos");
 
         for (String articulo : articulos) {
-            switch (articulo) {
-                case "pelota":
-                    Articulo pelota = new Articulo(ArticuloCategorias.DEPORTE, "pelota", "breve descripcion de pelota");
-                    compras.put(currentUser, pelota);
-                    break;
-                case "botas":
-                    Articulo botas = new Articulo(ArticuloCategorias.DEPORTE, "botas", "breve descripcion de botas");
-                    compras.put(currentUser, botas);
-                    break;
-                case "mesita":
-                    Articulo mesita = new Articulo(ArticuloCategorias.HOGAR, "mesita", "breve descripcion de mesita");
-                    compras.put(currentUser, mesita);
-                    break;
-                case "lampara":
-                    Articulo lampara = new Articulo(ArticuloCategorias.HOGAR, "lampara", "breve descripcion de lampara");
-                    compras.put(currentUser, lampara);
-                    break;
-                case "camiseta":
-                    Articulo camiseta = new Articulo(ArticuloCategorias.HOGAR, "camiseta", "breve descripcion de camiseta");
-                    compras.put(currentUser, camiseta);
-                    break;
-                case "vestido":
-                    Articulo vestido = new Articulo(ArticuloCategorias.HOGAR, "vestido", "breve descripcion de vestido");
-                    compras.put(currentUser, vestido);
-                    break;
-            }
+            if (articulo.equals("pelota")) {
+                Articulo pelota = new Articulo(ArticuloCategorias.DEPORTE, "pelota", "breve descripcion de pelota");
+                compras.put(currentUser, pelota);
+            } //terminar 
         }
     }
 

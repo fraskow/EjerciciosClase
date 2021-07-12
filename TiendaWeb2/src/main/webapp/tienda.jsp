@@ -15,17 +15,17 @@
         <h1>Tienda</h1>
         <form action="TiendaServlet" name="tiendaForm">
             <label>Deportes - pelota futbol</label>
-            <input type="radio" name="articulos"  value="pelota">
+            <input type="checkbox" name="articulos"  value="pelota">
             <label>Deportes - botas baloncesto</label>
-            <input type="radio" name="articulos" value="botas">
+            <input type="checkbox" name="articulos" value="botas">
             <label>Hogar - mesita de noche</label>
-            <input type="radio" name="articulos" value="mesita">
+            <input type="checkbox" name="articulos" value="mesita">
             <label>Hogar - lampara</label>
-            <input type="radio" name="articulos" value="lampara">
+            <input type="checkbox" name="articulos" value="lampara">
             <label>Textil - camiseta</label>
-            <input type="radio" name="articulos" value="camiseta">
+            <input type="checkbox" name="articulos" value="camiseta">
             <label>Textil - vestido</label>
-            <input type="radio" name="articulos" value="vestido">
+            <input type="checkbox" name="articulos" value="vestido">
             <input type="submit" name="boton" value="comprar">
             <input type="reset" name="boton" value="limpiar">
         </form>

@@ -6,7 +6,7 @@
     </listener>
     <listener>
         <description>HttpSessionListener</description>
-        <listener-class>com.arelance.tiendaweb2.listeners.NewServletListener</listener-class>
+        <listener-class>com.arelance.tiendaweb2.listeners.MainSessionListener</listener-class>
     </listener>
     <session-config>
         <session-timeout>

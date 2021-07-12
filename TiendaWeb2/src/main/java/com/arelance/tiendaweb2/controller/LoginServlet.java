@@ -14,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -55,6 +54,7 @@ public class LoginServlet extends HttpServlet {
                     
                 } else {
                     contador++;
+                    request.getSession(false);
                     if (contador > 3) {
                         request.getRequestDispatcher("./index.jsp").forward(request, response);
                     } else if (contador <= 3) {

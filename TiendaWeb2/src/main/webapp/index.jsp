@@ -3,6 +3,7 @@
     Created on : 09-jul-2021, 11:48:47
     Author     : Admin
 --%>
+<%@page session="false"%>
 <%@page import="com.arelance.tiendaweb2.controller.IndexServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
