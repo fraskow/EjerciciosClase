@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.tiendaweb2.controller;
+package com.arelance.calculadoraconcatena.test;
 
-import com.arelance.tiendaweb2.beans.Articulo;
-import com.arelance.tiendaweb2.beans.ArticuloCategorias;
-import com.arelance.tiendaweb2.beans.LoginData;
 import java.io.IOException;
-import java.util.Map;
+import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author frans
  */
-@WebServlet(name = "TiendaServlet", urlPatterns = {"/TiendaServlet"})
-public class TiendaServlet extends HttpServlet {
+@WebServlet(name = "CalculadoraServlet", urlPatterns = {"/CalculadoraServlet"})
+public class CalculadoraServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,33 +32,16 @@ public class TiendaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        LoginData currentUser = (LoginData) request.getSession().getAttribute("currentUser");
-        Map<LoginData, Articulo> compras = (Map<LoginData, Articulo>) request.getSession().getAttribute("compras");
-
-        String[] articulos = request.getParameterValues("articulos");
-
-        for (String articulo : articulos) {
-            if (articulo.equals("pelota")) {
-                Articulo pelota = new Articulo(ArticuloCategorias.DEPORTE, "pelota", "breve descripcion de pelota");
-                compras.put(currentUser, pelota);
-            } else if (articulo.equals("botas")) {
-                Articulo botas = new Articulo(ArticuloCategorias.DEPORTE, "botas", "breve descripcion de botas");
-                compras.put(currentUser, botas);
-            }else if (articulo.equals("mesita")) {
-                Articulo mesita = new Articulo(ArticuloCategorias.HOGAR, "botas", "breve descripcion de mesita");
-                compras.put(currentUser, mesita);
-            }else if (articulo.equals("lampara")) {
-                Articulo lampara = new Articulo(ArticuloCategorias.HOGAR, "botas", "breve descripcion de lampara");
-                compras.put(currentUser, lampara);
-            }else if (articulo.equals("camiseta")) {
-                Articulo camiseta = new Articulo(ArticuloCategorias.TEXTIL, "botas", "breve descripcion de camiseta");
-                compras.put(currentUser, camiseta);
-            }else if (articulo.equals("vestido")) {
-                Articulo vestido = new Articulo(ArticuloCategorias.TEXTIL, "vestido", "breve descripcion de vestido");
-                compras.put(currentUser, vestido);
-            }
-        }
+        
+        Integer n1 = Integer.parseInt(request.getParameter("n1"));
+        Integer n2 = Integer.parseInt(request.getParameter("n2"));
+        List resultados = (List) request.getSession().getAttribute("resultados");
+        Integer resultado = n1+n2;
+        
+        resultados.add(resultado);
+        
+        request.getRequestDispatcher("./index.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
