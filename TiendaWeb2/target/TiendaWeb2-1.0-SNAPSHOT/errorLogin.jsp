@@ -15,8 +15,7 @@
         <h1>Error de login</h1>
         <p>¿Desa volver al login?</p>
         <form action="login.jsp">
-            <input type="text" name="errores" value="<% int contador = (int)request.getSession().getAttribute("contador");
-                                                        out.print(contador++); %>">
+            <p> Contraseña no confirmada </p>
             <input type="submit" name="boton" value="volver">
         </form>
     </body>

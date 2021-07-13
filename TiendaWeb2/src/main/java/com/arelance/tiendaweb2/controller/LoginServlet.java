@@ -33,37 +33,36 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         Map<LoginData, Usuario> userMapped = (Map<LoginData, Usuario>) request.getServletContext().getAttribute("users");
-        String boton = request.getParameter("boton");
+
         String nick = request.getParameter("nick");
         String pw = request.getParameter("pw");
         LoginData currentUser = new LoginData(nick, pw);
-       
+        
         String pwConfirmed = request.getParameter("pwConfirmed");
-        int contador = 0;
-        request.getSession().setAttribute("contador", contador);
+
+        Integer errores = Integer.parseInt(request.getParameter("errores"));
+        request.setAttribute("contador", ++errores);
+        Integer contador = (Integer) request.getAttribute("contador");
         
 
-        if (boton.equals("login")) {
-            if (pwConfirmed.equals(pw)) {
-                if (userMapped.keySet().contains(currentUser)){
-                        request.getSession(true);
-                        request.getSession().setAttribute("currentUser", currentUser);
-                        request.getRequestDispatcher("./tienda.jsp").forward(request, response);
-                    
-                } else {
-                    contador++;
-                    request.getSession(false);
-                    if (contador > 3) {
-                        request.getRequestDispatcher("./index.jsp").forward(request, response);
-                    } else if (contador <= 3) {
-                        request.getRequestDispatcher("./errorLogin.jsp").forward(request, response);
-                    }
-                }
+        if (pwConfirmed.equals(pw)) {
+            if (userMapped.containsKey(currentUser)) {
+                request.getSession(true);
+                request.getSession().setAttribute("currentUser", currentUser);
+                request.getRequestDispatcher("./tienda.jsp").forward(request, response);
+
             } else {
-                request.getRequestDispatcher("./errorLogin.jsp").forward(request, response);
+                ++contador;
+                if (contador > 3) {
+                    request.getRequestDispatcher("./index.jsp").forward(request, response);
+                } else if (contador <= 3) {
+                    request.getRequestDispatcher("./login.jsp").forward(request, response);
+                }
             }
+        } else {
+            request.getRequestDispatcher("./errorLogin.jsp").forward(request, response);
         }
     }
 

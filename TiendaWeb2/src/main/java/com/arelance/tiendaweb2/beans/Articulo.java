@@ -67,5 +67,10 @@ public class Articulo {
         final Articulo other = (Articulo) obj;
         return Objects.equals(this.articleName, other.articleName);
     }
+
+    @Override
+    public String toString() {
+        return "Articulo{" + "categories=" + categories + ", articleName=" + articleName + ", description=" + description + '}';
+    }
     
 }

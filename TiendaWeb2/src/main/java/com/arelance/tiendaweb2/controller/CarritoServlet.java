@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.calculadoraconcatena.test;
+package com.arelance.tiendaweb2.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author frans
+ * @author Admin
  */
-@WebServlet(name = "CalculadoraServlet", urlPatterns = {"/CalculadoraServlet"})
-public class CalculadoraServlet extends HttpServlet {
+@WebServlet(name = "CarritoServlet", urlPatterns = {"/CarritoServlet"})
+public class CarritoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,16 +31,18 @@ public class CalculadoraServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        Integer n1 = Integer.parseInt(request.getParameter("n1"));
-        Integer n2 = Integer.parseInt(request.getParameter("n2"));
-        List resultados = (List) request.getSession().getAttribute("resultados");
-        Integer resultado = n1+n2;
-        
-        resultados.add(resultado);
-        
-        request.getRequestDispatcher("./index.jsp").forward(request, response);
-        
+
+        String boton = request.getParameter("boton");
+
+        if (boton.equals("si")) {
+            if (request.getSession() != null) {
+                request.getSession().invalidate();
+                request.getRequestDispatcher("./index.jsp").forward(request, response);
+            }
+        } else if (boton.equals("no")) {
+            request.getRequestDispatcher("./tienda.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

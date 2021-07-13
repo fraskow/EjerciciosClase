@@ -28,7 +28,7 @@ public class MainContextListener implements ServletContextListener {
         userMapped.put(new LoginData("juan", "1234"), new Usuario(new DatosPersonales("juan", "belmonte", "15"), new Direccion("42150", "2", "JuanMontana")));
         userMapped.put(new LoginData("pepe", "4321"), new Usuario(new DatosPersonales("Pepe", "Botella", "14"), new Direccion("21403", "3", "Pepecalle")));
         userMapped.put(new LoginData("tomas", "9999"), new Usuario(new DatosPersonales("Tomas", "Timon", "23"), new Direccion("12345", "5", "tomascalle")));
-
+        
         sce.getServletContext().setAttribute("users", userMapped);
     }
 

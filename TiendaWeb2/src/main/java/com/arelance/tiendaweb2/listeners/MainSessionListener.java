@@ -6,10 +6,11 @@
 package com.arelance.tiendaweb2.listeners;
 
 import com.arelance.tiendaweb2.beans.Articulo;
-import com.arelance.tiendaweb2.beans.ArticuloCategorias;
 import com.arelance.tiendaweb2.beans.LoginData;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
@@ -22,13 +23,13 @@ public class MainSessionListener implements HttpSessionListener {
 
     @Override
     public void sessionCreated(HttpSessionEvent se) {
-        Map<LoginData,Articulo> compras = new HashMap<>();
-        LoginData currentUser = (LoginData) se.getSession().getAttribute("currentUser");
-        Articulo articuloComprado = new Articulo(ArticuloCategorias.DEPORTE, "tenis", "breve descripcion de tenis");
         
-        compras.put(currentUser, articuloComprado);
+        Set<Articulo> articulos = new HashSet<>();
+        
+        Map<LoginData,Articulo> compras = new HashMap<>();
         
         se.getSession().setAttribute("compras", compras);
+        se.getSession().setAttribute("articulos", articulos);
     }
 
     @Override

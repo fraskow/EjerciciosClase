@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Admin
  */
-public class LoginData {
+public class LoginData implements Comparable<LoginData>{
     
     private String nick;
     private String pw;
@@ -61,6 +61,16 @@ public class LoginData {
             return false;
         }
         return Objects.equals(this.pw, other.pw);
+    }
+
+    @Override
+    public int compareTo(LoginData o) {
+        return this.getNick().compareTo(o.nick);
+    }
+
+    @Override
+    public String toString() {
+        return "LoginData{" + "nick=" + nick + ", pw=" + pw + '}';
     }
 
 }

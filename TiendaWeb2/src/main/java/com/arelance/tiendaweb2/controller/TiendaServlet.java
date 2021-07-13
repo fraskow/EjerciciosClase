@@ -41,26 +41,37 @@ public class TiendaServlet extends HttpServlet {
         String[] articulos = request.getParameterValues("articulos");
 
         for (String articulo : articulos) {
-            if (articulo.equals("pelota")) {
-                Articulo pelota = new Articulo(ArticuloCategorias.DEPORTE, "pelota", "breve descripcion de pelota");
-                compras.put(currentUser, pelota);
-            } else if (articulo.equals("botas")) {
-                Articulo botas = new Articulo(ArticuloCategorias.DEPORTE, "botas", "breve descripcion de botas");
-                compras.put(currentUser, botas);
-            }else if (articulo.equals("mesita")) {
-                Articulo mesita = new Articulo(ArticuloCategorias.HOGAR, "botas", "breve descripcion de mesita");
-                compras.put(currentUser, mesita);
-            }else if (articulo.equals("lampara")) {
-                Articulo lampara = new Articulo(ArticuloCategorias.HOGAR, "botas", "breve descripcion de lampara");
-                compras.put(currentUser, lampara);
-            }else if (articulo.equals("camiseta")) {
-                Articulo camiseta = new Articulo(ArticuloCategorias.TEXTIL, "botas", "breve descripcion de camiseta");
-                compras.put(currentUser, camiseta);
-            }else if (articulo.equals("vestido")) {
-                Articulo vestido = new Articulo(ArticuloCategorias.TEXTIL, "vestido", "breve descripcion de vestido");
-                compras.put(currentUser, vestido);
+            switch (articulo) {
+                case "pelota":
+                    Articulo pelota = new Articulo(ArticuloCategorias.DEPORTE, "pelota", "breve descripcion de pelota");
+                    compras.put(currentUser, pelota);
+                    break;
+                case "botas":
+                    Articulo botas = new Articulo(ArticuloCategorias.DEPORTE, "botas", "breve descripcion de botas");
+                    compras.put(currentUser, botas);
+                    break;
+                case "mesita":
+                    Articulo mesita = new Articulo(ArticuloCategorias.HOGAR, "mesita", "breve descripcion de mesita");
+                    compras.put(currentUser, mesita);
+                    break;
+                case "lampara":
+                    Articulo lampara = new Articulo(ArticuloCategorias.HOGAR, "lampara", "breve descripcion de lampara");
+                    compras.put(currentUser, lampara);
+                    break;
+                case "camiseta":
+                    Articulo camiseta = new Articulo(ArticuloCategorias.TEXTIL, "camiseta", "breve descripcion de camiseta");
+                    compras.put(currentUser, camiseta);
+                    break;
+                case "vestido":
+                    Articulo vestido = new Articulo(ArticuloCategorias.TEXTIL, "vestido", "breve descripcion de vestido");
+                    compras.put(currentUser, vestido);
+                    break;
+                default:
+                    break;
             }
+            request.getSession().setAttribute("compras", compras);
         }
+        request.getRequestDispatcher("./listaArticulo.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

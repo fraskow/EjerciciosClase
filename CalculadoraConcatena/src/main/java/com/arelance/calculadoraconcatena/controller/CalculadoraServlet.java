@@ -3,14 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.tiendaweb2.controller;
+package com.arelance.calculadoraconcatena.controller;
 
-import com.arelance.tiendaweb2.beans.DatosPersonales;
-import com.arelance.tiendaweb2.beans.Direccion;
-import com.arelance.tiendaweb2.beans.LoginData;
-import com.arelance.tiendaweb2.beans.Usuario;
 import java.io.IOException;
-import java.util.Map;
+import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author frans
  */
-@WebServlet(name = "RegistroServlet", urlPatterns = {"/RegistroServlet"})
-public class RegistroServlet extends HttpServlet {
+@WebServlet(name = "CalculadoraServlet", urlPatterns = {"/CalculadoraServlet"})
+public class CalculadoraServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,29 +32,16 @@ public class RegistroServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         
-        String nick = request.getParameter("nick");
-        String pwRegistro = request.getParameter("pwRegistro");
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String edad = request.getParameter("edad");
-        String cp = request.getParameter("cp");
-        String calle = request.getParameter("calle");
-        String num = request.getParameter("num");
+        Integer n1 = Integer.parseInt(request.getParameter("n1"));
+        Integer n2 = Integer.parseInt(request.getParameter("n2"));
+        List resultados = (List) request.getSession().getAttribute("resultados");
+        Integer resultado = n1+n2;
         
-        Map<LoginData, Usuario> userMapped = (Map<LoginData, Usuario>) request.getServletContext().getAttribute("users");
-        LoginData newLog = new LoginData(nick, pwRegistro);
-        Usuario newUser = new Usuario(new DatosPersonales(nombre, apellido, edad), new Direccion(cp, num, calle));
+        resultados.add(resultado);
         
-        //userMapped.put(newLog, newUser);
+        request.getRequestDispatcher("./index.jsp").forward(request, response);
         
-        if(!userMapped.containsKey(newLog.getNick())){
-            userMapped.put(newLog, newUser);
-            request.getRequestDispatcher("./login.jsp").forward(request, response);
-        } else{
-            request.getRequestDispatcher("./errorRegistro.jsp").forward(request, response);
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
