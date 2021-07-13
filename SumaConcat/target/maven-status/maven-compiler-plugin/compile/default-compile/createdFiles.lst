@@ -1,0 +1,4 @@
+com\arelance\sumaconcat\controller\NewServletListener.class
+com\arelance\sumaconcat\controller\IndexServlet.class
+com\arelance\sumaconcat\JAXRSConfiguration.class
+com\arelance\sumaconcat\resources\JavaEE8Resource.class
