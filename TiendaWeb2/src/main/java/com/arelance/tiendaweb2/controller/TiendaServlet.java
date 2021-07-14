@@ -10,6 +10,7 @@ import com.arelance.tiendaweb2.beans.ArticuloCategorias;
 import com.arelance.tiendaweb2.beans.LoginData;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,42 +36,26 @@ public class TiendaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        LoginData currentUser = (LoginData) request.getSession().getAttribute("currentUser");
-        Map<LoginData, Articulo> compras = (Map<LoginData, Articulo>) request.getSession().getAttribute("compras");
-
+        Set<Articulo> compra = (Set<Articulo>) request.getSession().getAttribute("compra");
         String[] articulos = request.getParameterValues("articulos");
 
         for (String articulo : articulos) {
             switch (articulo) {
                 case "pelota":
-                    Articulo pelota = new Articulo(ArticuloCategorias.DEPORTE, "pelota", "breve descripcion de pelota");
-                    compras.put(currentUser, pelota);
-                    break;
+                    compra.add(new Articulo(ArticuloCategorias.DEPORTE, articulo, "Descripcion de " + articulo));
                 case "botas":
-                    Articulo botas = new Articulo(ArticuloCategorias.DEPORTE, "botas", "breve descripcion de botas");
-                    compras.put(currentUser, botas);
-                    break;
+                    compra.add(new Articulo(ArticuloCategorias.DEPORTE, articulo, "Descripcion de " + articulo));
                 case "mesita":
-                    Articulo mesita = new Articulo(ArticuloCategorias.HOGAR, "mesita", "breve descripcion de mesita");
-                    compras.put(currentUser, mesita);
-                    break;
+                    compra.add(new Articulo(ArticuloCategorias.DEPORTE, articulo, "Descripcion de " + articulo));
                 case "lampara":
-                    Articulo lampara = new Articulo(ArticuloCategorias.HOGAR, "lampara", "breve descripcion de lampara");
-                    compras.put(currentUser, lampara);
-                    break;
+                    compra.add(new Articulo(ArticuloCategorias.DEPORTE, articulo, "Descripcion de " + articulo));
                 case "camiseta":
-                    Articulo camiseta = new Articulo(ArticuloCategorias.TEXTIL, "camiseta", "breve descripcion de camiseta");
-                    compras.put(currentUser, camiseta);
-                    break;
+                    compra.add(new Articulo(ArticuloCategorias.DEPORTE, articulo, "Descripcion de " + articulo));
                 case "vestido":
-                    Articulo vestido = new Articulo(ArticuloCategorias.TEXTIL, "vestido", "breve descripcion de vestido");
-                    compras.put(currentUser, vestido);
-                    break;
-                default:
-                    break;
+                    compra.add(new Articulo(ArticuloCategorias.DEPORTE, articulo, "Descripcion de " + articulo));
             }
-            request.getSession().setAttribute("compras", compras);
         }
+
         request.getRequestDispatcher("./listaArticulo.jsp").forward(request, response);
     }
 

@@ -14,7 +14,7 @@
     <body>
         <h1>Lista de la compra</h1>
         <p>
-            <%=request.getSession().getAttribute("compras")%>
+            <%=session.getAttribute("compra")%>
         </p>
         <form action="CarritoServlet">
             <label>¿Desea salir de la sesesion?</label>

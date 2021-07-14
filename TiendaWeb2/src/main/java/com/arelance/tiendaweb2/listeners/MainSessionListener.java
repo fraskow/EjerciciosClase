@@ -24,12 +24,8 @@ public class MainSessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent se) {
         
-        Set<Articulo> articulos = new HashSet<>();
-        
-        Map<LoginData,Articulo> compras = new HashMap<>();
-        
-        se.getSession().setAttribute("compras", compras);
-        se.getSession().setAttribute("articulos", articulos);
+        Set<Articulo> compra = new HashSet<>();
+        se.getSession().setAttribute("compra", compra);
     }
 
     @Override
