@@ -1,0 +1,11 @@
+com\arelance\megajobs\listeners\MainContextListener.class
+com\arelance\megajobs\beans\Usuario.class
+com\arelance\megajobs\JAXRSConfiguration.class
+com\arelance\megajobs\beans\EnumLocation.class
+com\arelance\megajobs\controller\RegistroServlet.class
+com\arelance\megajobs\resources\JavaEE8Resource.class
+com\arelance\megajobs\beans\EnumExp.class
+com\arelance\megajobs\controller\LoginServlet.class
+com\arelance\megajobs\listeners\MainSessionListener.class
+com\arelance\megajobs\beans\Oferta.class
+com\arelance\megajobs\controller\IndexServlet.class

@@ -1,0 +1,16 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+    String errorNick = request.getAttribute("errorNick") == null ? "" : (String) request.getAttribute("errorNick");
+    String errorPass = request.getAttribute("errorPass") == null ? "" : (String) request.getAttribute("errorPass");
+%>
+<form action="LoginServlet" method="GET">
+    <label>Nick:
+        <input type="text" name="nick" required>
+    </label><%=errorNick%><br>
+    <label>Password:
+        <input type="text" name="password" required>
+    </label><%=errorPass%>
+    <input type="submit" name="login" value="Login">
+    <input type="reset" name="reset" value="Clear">
+</form>
