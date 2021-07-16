@@ -33,6 +33,8 @@ public class RegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        
+        
         String nick = request.getParameter("nick");
         String password = request.getParameter("password");
         String passwordConfirm = request.getParameter("passwordConfirmed");

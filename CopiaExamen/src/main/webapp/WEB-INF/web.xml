@@ -4,6 +4,10 @@
         <description>ServletContextListener</description>
         <listener-class>com.arelance.megajobs.listeners.MainContextListener</listener-class>
     </listener>
+    <listener>
+        <description>HttpSessionListener</description>
+        <listener-class>com.arelance.megajobs.listeners.MainSessionListener</listener-class>
+    </listener>
     <session-config>
         <session-timeout>
             30

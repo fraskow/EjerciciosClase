@@ -85,4 +85,12 @@ public class Oferta {
         }
         return this.exp == other.exp;
     }
+
+    @Override
+    public String toString() {
+        return "Oferta{" + "location=" + location + ", exp=" + exp + ", salario=" + salario + ", descripcion=" + descripcion + '}';
+    }
+    
+    
+    
 }

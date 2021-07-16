@@ -8,6 +8,7 @@ package com.arelance.megajobs.controller;
 import com.arelance.megajobs.beans.Oferta;
 import com.arelance.megajobs.beans.Usuario;
 import java.io.IOException;
+import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,17 +38,20 @@ public class IndexServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Map<Oferta, Set<Usuario>> inscritos = (Map<Oferta, Set<Usuario>>) request.getServletContext().getAttribute("inscritos");
+        
+        Map<Oferta, Set<Usuario>> inscritos = (Map<Oferta, Set<Usuario>>) getServletContext().getAttribute("inscritos");
         List<Oferta> ofertas = new ArrayList<>(inscritos.keySet());
         Usuario currentUser = (Usuario) request.getSession().getAttribute("currentUser");
         
 
-        String[] indexOferta = request.getParameterValues("ofertas");
+        String[] indexOfertas = request.getParameterValues("ofertas");
 
-        for (int i = 0; i < indexOferta.length; i++) {
-            Integer index = Integer.parseInt(indexOferta[i]);
+        for (String indexOferta : indexOfertas) {
+            Integer index = Integer.parseInt(indexOferta);
             inscritos.get(ofertas.get(index)).add(currentUser);
         }
+        
+        
         
         request.getRequestDispatcher("./index.jsp").forward(request, response);
 

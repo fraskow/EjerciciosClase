@@ -51,8 +51,9 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("./login.jsp").forward(request, response);
             }
             request.setAttribute("errorNick", "El nick es incorrecto");
-            request.getRequestDispatcher("./login.jsp").forward(request, response);
+            
         }
+        request.getRequestDispatcher("./login.jsp").forward(request, response);
         
     }
 
